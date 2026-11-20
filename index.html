@@ -563,7 +563,7 @@
   <aside class="sidebar">
     <div class="sidebar-header">
       <div class="me-avatar">🐼</div>
-      <div class="sidebar-title">Chats</div>
+      <div class="sidebar-title">Beltah CHAT INTERFACE</div>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
         <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
              stroke-linecap="round" stroke-linejoin="round">
@@ -664,156 +664,110 @@
      ========================================================= */
 
   // ── THE AI CHAT (with a simulated Claude) ────────────────
-  const AI_CHAT = {
-    id: 'ai',
-    name: 'Claude',
-    avatar: '🤖',
-    avatarBg: 'linear-gradient(135deg,#d97757,#c96442)',
-    status: 'AI assistant · always online',
+  const chats = [
+  AI_CHAT,
+  {
+    id: 'c1',
+    name: 'VeroraChat — M-Pesa Paywall',
+    avatar: '💳',
+    avatarBg: 'linear-gradient(135deg,#16a34a,#15803d)',
+    status: 'Safaricom Daraja API • Live',
     online: true,
     unread: 1,
     typing: false,
-    isAI: true,
     messages: [
-      {
-        id: 'ai1',
-        from: 'them',
-        text: "Hi there! 👋 I'm **Claude**, an AI assistant made by Anthropic.",
-        time: 'Just now',
-        status: 'read'
-      },
-      {
-        id: 'ai2',
-        from: 'them',
-        text: "Quick heads-up: this is a **simulated** version of me running locally in your browser. My replies here are pattern-matched JavaScript — not live generation. 🎭",
-        time: 'Just now',
-        status: 'read'
-      },
-      {
-        id: 'ai3',
-        from: 'them',
-        text: "Still, feel free to say hi or ask me anything!\n\nTry:\n• \"hi\" 👋\n• \"who are you?\"\n• \"help\" ✨\n• \"code\" or \"design\"",
-        time: 'Just now',
-        status: 'read'
-      }
+      { id:'m1', from:'them', text:'Welcome to VeroraChat! 🔒 Unlock full VIP chat access via M-Pesa Express.', time:'09:10', status:'read' },
+      { id:'m2', from:'them', text:'Reply with your Safaricom number (e.g., 2547XXXXXXXX) to initiate an STK Push for KES 100.', time:'09:10', status:'read' },
+      { id:'m3', from:'me',   text:'254712345678', time:'09:11', status:'read' },
+      { id:'m4', from:'them', text:'📲 STK Push sent to 254712345678! Check your phone and enter your M-Pesa PIN to pay KES 100 to BELTAH TECH SERVICES.', time:'09:11', status:'read' },
+      { id:'m5', from:'me',   text:'PIN entered, waiting for confirmation...', time:'09:12', status:'read' },
+      { id:'m6', from:'them', text:'✅ Payment Confirmed! Receipt: SLK89X2M1P • Amount: KES 100.00. Your VeroraChat session is now unlocked! 🚀', time:'09:12', status:'read' }
     ]
-  };
+  },
+  {
+    id: 'c2',
+    name: 'Staicy Njoroge',
+    avatar: '🌸',
+    avatarBg: 'linear-gradient(135deg,#ec4899,#f472b6)',
+    status: 'online',
+    online: true,
+    unread: 0,
+    typing: false,
+    messages: [
+      { id:'m1', from:'them', text:'Hey Brian! Are we still on for an evening walk later? 🌿', time:'08:40', status:'read' },
+      { id:'m2', from:'me',   text:'Absolutely. Around 6pm before my 7pm shift starts?', time:'08:42', status:'read' },
+      { id:'m3', from:'them', text:'Perfect. Also still obsessed with the pastel birthday site you built me! 💕', time:'08:43', status:'read' }
+    ]
+  },
+  {
+    id: 'c3',
+    name: 'Creative & AI Squad',
+    avatar: '🎨',
+    avatarBg: 'linear-gradient(135deg,#f59e0b,#ef4444)',
+    status: '5 members',
+    online: false,
+    unread: 5,
+    typing: false,
+    messages: [
+      { id:'m1', from:'them', text:'New neon promo posters and anime character renders are ready 🎨', time:'Yesterday', status:'read' },
+      { id:'m2', from:'me',   text:'The lighting on the logo mockup is chef’s kiss 👌', time:'Yesterday', status:'read' },
+      { id:'m3', from:'them', text:'Agreed. Let us lock it in for the client.', time:'Yesterday', status:'read' }
+    ]
+  },
+  {
+    id: 'c4',
+    name: 'Keisha',
+    avatar: '✨',
+    avatarBg: 'linear-gradient(135deg,#10b981,#059669)',
+    status: 'last seen today at 07:55',
+    online: false,
+    unread: 0,
+    typing: false,
+    messages: [
+      { id:'m1', from:'me',   text:'Sent over the updated gallery photos and tracks 🎶', time:'07:30', status:'read' },
+      { id:'m2', from:'them', text:'Got them, thanks! Listening to Perfect right now.', time:'07:55', status:'read' }
+    ]
+  },
+  {
+    id: 'c5',
+    name: 'Remote & Dev Network',
+    avatar: '💻',
+    avatarBg: 'linear-gradient(135deg,#0ea5e9,#0284c7)',
+    status: '12 members',
+    online: false,
+    unread: 0,
+    typing: false,
+    messages: [
+      { id:'m1', from:'them', text:'Evening moderation and AI training tasks are live for 7 PM EAT ⚡', time:'Yesterday', status:'read' },
+      { id:'m2', from:'me',   text:'Desktop setup and backup power are ready. Logging in now!', time:'Yesterday', status:'read' },
+      { id:'m3', from:'them', text:'Great, see you in the queue.', time:'Yesterday', status:'read' }
+    ]
+  },
+  {
+    id: 'c6',
+    name: 'Beltah WhatsApp Bot',
+    avatar: '🤖',
+    avatarBg: 'linear-gradient(135deg,#64748b,#334155)',
+    status: 'always online',
+    online: true,
+    unread: 0,
+    typing: false,
+    messages: [
+      { id:'m1', from:'them', text:'Node.js bot linked! Type ".menu", ".ping", or ".runtime" to check EAT status.', time:'Mon', status:'read' }
+    ]
+  }
+];
 
-  const chats = [
-    AI_CHAT,
-    {
-      id: 'c1',
-      name: 'Panda Dev Team',
-      avatar: '🐼',
-      avatarBg: 'linear-gradient(135deg,#6366f1,#8b5cf6)',
-      status: '3 members online',
-      online: true,
-      unread: 2,
-      typing: false,
-      messages: [
-        { id:'m1', from:'them', text:'Morning team! 👋', time:'09:12', status:'read' },
-        { id:'m2', from:'them', text:'Did everyone see the new login page with the panda?', time:'09:12', status:'read' },
-        { id:'m3', from:'me',   text:'Yep — the eyes close when you type the password. Love it 😄', time:'09:14', status:'read' },
-        { id:'m4', from:'them', text:'Genius. Should we ship it to staging?', time:'09:15', status:'read' },
-        { id:'m5', from:'me',   text:'Let me run one more check on mobile first.', time:'09:16', status:'read' },
-        { id:'m6', from:'them', text:'Sounds good. Ping us when it is ready 🚀', time:'09:17', status:'read' }
-      ]
-    },
-    {
-      id: 'c2',
-      name: 'Mia Chen',
-      avatar: '🌸',
-      avatarBg: 'linear-gradient(135deg,#ec4899,#f472b6)',
-      status: 'online',
-      online: true,
-      unread: 0,
-      typing: false,
-      messages: [
-        { id:'m1', from:'them', text:'Hey! Are we still on for coffee tomorrow? ☕', time:'08:40', status:'read' },
-        { id:'m2', from:'me',   text:'Absolutely. 10am at the usual place?', time:'08:42', status:'read' },
-        { id:'m3', from:'them', text:'Perfect. I will bring the design mockups too.', time:'08:43', status:'read' }
-      ]
-    },
-    {
-      id: 'c3',
-      name: 'Design Squad',
-      avatar: '🎨',
-      avatarBg: 'linear-gradient(135deg,#f59e0b,#ef4444)',
-      status: '5 members',
-      online: false,
-      unread: 5,
-      typing: false,
-      messages: [
-        { id:'m1', from:'them', text:'New palette dropped in Figma 🎨', time:'Yesterday', status:'read' },
-        { id:'m2', from:'me',   text:'The violet accent is chef’s kiss 👌', time:'Yesterday', status:'read' },
-        { id:'m3', from:'them', text:'Agreed. Let us lock it in.', time:'Yesterday', status:'read' }
-      ]
-    },
-    {
-      id: 'c4',
-      name: 'Leo Martins',
-      avatar: '🦊',
-      avatarBg: 'linear-gradient(135deg,#10b981,#059669)',
-      status: 'last seen today at 07:55',
-      online: false,
-      unread: 0,
-      typing: false,
-      messages: [
-        { id:'m1', from:'me',   text:'Sent over the API docs 📄', time:'07:30', status:'read' },
-        { id:'m2', from:'them', text:'Got them, thanks! Reviewing now.', time:'07:55', status:'read' }
-      ]
-    },
-    {
-      id: 'c5',
-      name: 'Weekend Hikers',
-      avatar: '⛰️',
-      avatarBg: 'linear-gradient(135deg,#0ea5e9,#0284c7)',
-      status: '12 members',
-      online: false,
-      unread: 0,
-      typing: false,
-      messages: [
-        { id:'m1', from:'them', text:'Trail is open again this Saturday 🥾', time:'Yesterday', status:'read' },
-        { id:'m2', from:'me',   text:'Count me in! What time?', time:'Yesterday', status:'read' },
-        { id:'m3', from:'them', text:'6:30am at the north gate.', time:'Yesterday', status:'read' }
-      ]
-    },
-    {
-      id: 'c6',
-      name: 'Support Bot',
-      avatar: '🛠️',
-      avatarBg: 'linear-gradient(135deg,#64748b,#334155)',
-      status: 'always online',
-      online: true,
-      unread: 0,
-      typing: false,
-      messages: [
-        { id:'m1', from:'them', text:'Hi! I am here if you need anything. Type "help" to get started.', time:'Mon', status:'read' }
-      ]
-    }
-  ];
-
-  const AUTO_REPLIES = [
-    "Haha, that's great! 😄",
-    "Sure thing — I'll get back to you shortly.",
-    "Got it 👍",
-    "Interesting... tell me more!",
-    "Sounds good to me.",
-    "Let me check and confirm.",
-    "😂😂😂",
-    "I'll send the files in a bit.",
-    "Perfect, thanks!",
-    "On it! 🚀",
-    "Noted. Anything else?",
-    "That makes sense."
-  ];
-
-  const EMOJIS = [
-    '😀','😃','😄','😁','😆','😅','😂','🤣',
-    '😊','😇','🙂','🙃','😉','😌','😍','🥰',
-    '😘','😗','😙','😚','😋','😛','😝','😜',
-    '🤗','🤔','🤨','😐','😑','😶','🙄','😏'
-  ];
+const AUTO_REPLIES = [
+  "📲 STK Push initiated! Check your handset to enter your M-Pesa PIN.",
+  "✅ Payment received! Your session is now active.",
+  "Haha, that's great! 😄",
+  "Sure thing — I'll get back to you shortly.",
+  "Got it 👍",
+  "Let me check from my workstation and confirm.",
+  "On it! Pushing the update to GitHub now 🚀",
+  "Perfect, thanks!"
+];
 
   /* =========================================================
      2. REFS
